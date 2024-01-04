@@ -20,7 +20,7 @@ Delete: Remove Pokémon data from the database.
 run the following command to install and navigate to the api directory
 
 ```bash 
-git clone "" && cd $_
+git clone git@github.com:Esham156/CRUD_API_flask.git && cd $_
 ```
 
 start the virtual environment:
