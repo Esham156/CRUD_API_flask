@@ -1,5 +1,5 @@
 from application import db
-from application.pokemons.models import Pokemon
+from application.pokemons.model import Pokemon
 
 db.drop_all()
 print("Dropping Database")

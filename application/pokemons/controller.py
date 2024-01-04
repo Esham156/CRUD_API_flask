@@ -1,6 +1,6 @@
 from flask import jsonify, request
 from werkzeug import exceptions
-from .models import Pokemon
+from .model import Pokemon
 from .. import db
 
 
