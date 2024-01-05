@@ -4,13 +4,13 @@ from application import app
 from .controller import index, create, show, update, destroy
 
 
-@app.route('/pokemons', methods=["GET", "POST"])
+@app.route('/trainers', methods=["GET", "POST"])
 def handle_characters():
     if request.method == "POST": return create()
     if request.method == "GET": return index()
 
 
-@app.route('/pokemons/<int:id>', methods=["GET", "PATCH", "DELETE"])
+@app.route('/trainers/<int:id>', methods=["GET", "PATCH", "DELETE"])
 def handle_character(id):
     if request.method == "GET": return show(id)
     if request.method == "PATCH": return update(id)

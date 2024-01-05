@@ -1,4 +1,6 @@
 from application import db, app
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
 
 app.app_context().push()
 
@@ -7,12 +9,15 @@ class Pokemon(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    type = db.Column(db.String(100), nullable=False)
+    pokemon_type = db.Column(db.String(100), nullable=False)
     attack = db.Column(db.String(100), nullable=False)
+    trainer_id = db.Column(db.Integer, db.ForeignKey('trainers.id'), nullable=False)
 
-    def __init__(self, name, type, attack):
+    trainer = relationship("Trainer", back_populates="pokemons")
+
+    def __init__(self, name, pokemon_type, attack):
         self.name = name
-        self.type = type
+        self.pokemon_type = pokemon_type
         self.attack = attack
 
     def __repr__(self):
@@ -23,6 +28,6 @@ class Pokemon(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "type": self.type,
+            "pokemon_type": self.pokemon_type,
             "attack": self.attack
         }

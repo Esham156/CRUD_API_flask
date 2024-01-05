@@ -12,7 +12,6 @@ def index():
         raise exceptions.InternalServerError(f"We are working on it")
 
 def show(id):
-    print("id", type(id))
     pokemon = Pokemon.query.filter_by(id=id).first()
     try:
         return jsonify({ "data": pokemon.json }), 200
@@ -22,9 +21,9 @@ def show(id):
 
 def create():
     try:
-        name, type, attack = request.json.values()
+        name, pokemon_type, attack = request.json.values()
 
-        new_pokemon = Pokemon(name, type, attack)
+        new_pokemon = Pokemon(name, pokemon_type, attack)
 
         db.session.add(new_pokemon)
         db.session.commit()

@@ -3,10 +3,10 @@
 This Flask CRUD API manages Pokémon information, allowing users to perform CRUD operations on Pokémon data, including their name, type, and attack.
 
 ## Features
-Create: Add new Pokémon data to the database.
-Read: Retrieve existing Pokémon data from the database.
-Update: Modify existing Pokémon data in the database.
-Delete: Remove Pokémon data from the database.
+Create: Add new Pokémon/new Trainer data to the database.
+Read: Retrieve existing Pokémon/Trainer data from the database.
+Update: Modify existing Pokémon/Trainer data in the database.
+Delete: Remove Pokémon/Trainer data from the database.
 
 ## Setup
 
@@ -48,20 +48,32 @@ flask run
 ## API Endpoints
 | Method | Endpoint                             |Description                            |
 | ------ | ------------------------------------ | -------------------------------------- |
-| POST   | `/api/pokemon`                       | Create a new Pokémon entry.             |
-| GET    | `/api/pokemon`                       | Retrieve all Pokémon entries.           |
-| GET    | `/api/pokemon/<pokemon_id>`          | Retrieve a specific Pokémon entry by its index. |
-| PUT    | `/api/pokemon/<pokemon_id>`          | Update a specific Pokémon entry.        |
-| DELETE | `/api/pokemon/<pokemon_id>`          | Delete a specific Pokémon entry.        |
+| POST   | `/pokemons`                       | Create a new Pokémon entry.             |
+| GET    | `/pokemons`                       | Retrieve all Pokémon entries.           |
+| GET    | `/pokemons/<pokemon_id>`          | Retrieve a specific Pokémon entry by its index. |
+| PUT    | `/pokemons/<pokemon_id>`          | Update a specific Pokémon entry.        |
+| DELETE | `/pokemons/<pokemon_id>`          | Delete a specific Pokémon entry.        |
+| POST   | `/trainers`                       | Create a new Trainer entry.             |
+| GET    | `/trainers`                       | Retrieve all Trainer entries.           |
+| GET    | `/trainers/<trainer_id>`          | Retrieve a specific Trainer entry by its index. |
+| PUT    | `/trainers/<trainer_id>`          | Update a specific Trainer entry.        |
+| DELETE | `/trainers/<trainer_id>`          | Delete a specific Trainer entry.        |
 
 
 ## Payload Format
 When sending POST or PUT requests to create or update Pokémon entries, use the following JSON format :
+pokemon:
 ```json
 {
   "name": "Pikachu",
   "type": "Electric",
-  "attack": "Thunderbolt"
+  "attack": "Thunderbolt",
+  "trainer" : 1
 }
-
+```
+trainer:
+```json
+{
+  "name":
+}
 ```
